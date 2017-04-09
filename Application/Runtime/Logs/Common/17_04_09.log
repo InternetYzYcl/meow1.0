@@ -1,0 +1,12 @@
+[ 2017-04-09T11:18:14+08:00 ] ::1 /Internet+/index.php/hello
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+ERR: 无法加载模块:Hello
+
+[ 2017-04-09T11:19:16+08:00 ] ::1 /Internet+/index.php/hello
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+ERR: 无法加载模块:Hello
+
