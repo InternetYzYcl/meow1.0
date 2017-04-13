@@ -6,6 +6,7 @@ class LoginController extends Controller
 {
 	protected $stuId;
 	protected $password;
+	protected $url = 'http://hongyan.cqupt.edu.cn/api/verify';
 
 	public function index() {
 		$stuId = I('post.stuId');
@@ -14,6 +15,15 @@ class LoginController extends Controller
 		if($flag) {
 			$this->stuId = $stuId;
 			$this->password = $password;
+			$post_data = array(
+				'stuNum' => $stuId,
+				'idNum' => $password,
+			);
+			$data = $this->curlpost($this->url, $post_data);
+			$data = json_decode($data, true);
+			if
+			//待完成..............
+			$this->ajaxReturn($data);
 		} else {
 			$return = array(
 				'status' => 403,
@@ -36,7 +46,6 @@ class LoginController extends Controller
 		} elseif (is_numeric($password) || $pass_2 == 'x' || $pass_2 == 'X') {
 			$flag_2 = 1;
 		}
-
 		//判断并返回
 		if(($flag_1 == 1) && ($flag_2 == 1))
 			return 1;
@@ -45,30 +54,27 @@ class LoginController extends Controller
 	}
 
 	//curl链接学号接口
-	protected function curlpost(){
-	    $opts = array(
-            CURLOPT_TIMEOUT        => 30,
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_SSL_VERIFYHOST => false,
-            CURLOPT_HTTPHEADER     => "Content-type: text/html; charset=utf-8",
-	    );
-            //判断是否传输文件
-            $params = $multi ? $params : http_build_query($params);
-            $opts[CURLOPT_URL] = $url;
-            $opts[CURLOPT_POST] = 1;
-            $opts[CURLOPT_POSTFIELDS] = $params;
-            break;
-        default:
-            throw new Exception('不支持的请求方式！');
-	    }
-	    /* 初始化并执行curl请求 */
-	    $ch = curl_init();
-	    curl_setopt_array($ch, $opts);
-	    $data  = curl_exec($ch);
-	    $error = curl_error($ch);
-	    curl_close($ch);
-	    if($error) throw new Exception('请求发生错误：' . $error);
-	    return  $data;
-	}
+	public function curlPost($url = '', $post_data = array()) {    //模拟登陆
+        if (empty($url) || empty($post_data)) {
+            return false;
+        }  
+        $o = "";
+        foreach ( $post_data as $k => $v ) 
+        { 
+            $o.= "$k=" . urlencode( $v ). "&" ;
+        }
+        $post_data = substr($o,0,-1);
+
+        $postUrl = $url;
+        $curlPost = $post_data;
+        $ch = curl_init();//初始化curl
+        curl_setopt($ch, CURLOPT_URL,$postUrl);//抓取指定网页
+        curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
+        curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
+        $data = curl_exec($ch);//运行curl
+        curl_close($ch); 
+        return $data;
+    }
 }
