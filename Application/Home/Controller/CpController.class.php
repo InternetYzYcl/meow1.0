@@ -12,11 +12,11 @@ class CpController extends Controller
 	protected $oldpassword;
 	protected $newpassword;
 
-	public function _initiatize() {
+	public function _initialize() {
 		$this->userDB = M('user');
 	}
 
-	protected function index() {
+	public function index() {
 		$this->getStuData();
 		if($this->changePc()) {
 			$status = '200';
@@ -26,8 +26,10 @@ class CpController extends Controller
 			$info = 'update faild';
 		}
 		$return = array(
+			'status' => $status,
+			'info' => $info,
 			'data' => '',
-			'version' => '1.0'.	
+			'version' => '1.0',
 		);
 		$this->ajaxReturn($return);
 	}
@@ -36,7 +38,7 @@ class CpController extends Controller
 	 * 获得用户数据
 	 */
 	protected function getStuData() {
-		$json_data = I('post.data');
+		$json_data = $_POST['data'];
 		$data = json_decode($json_data, true);
 		$this->stuid = $data['stuid'];
 		$this->password = $data['password'];
@@ -49,8 +51,8 @@ class CpController extends Controller
 	protected function changePc() {
 		if($this->isThisStudent()) {
 			if($this->oldpassword == $this->password) {
-				$data['idNum'] = $this->newpassword;
-				$userDB->where('stuid=')->save($data);
+				$data['idnum'] = $this->newpassword;
+				$res = $this->userDB->where(array('stuid' => "$this->stuid"))->save($data);
 				return 1;
 			} else {
 				return 0;
@@ -63,7 +65,7 @@ class CpController extends Controller
 	 * 查询是否存在这个学生
 	 */
 	protected function isThisStudent() {
-		if($this->userDB->where(array('stuid' => $this->$stuid,'idNum' => $this->password))->find()) {
+		if($this->userDB->where(array('stuid' => $this->stuid, 'idnum' => $this->password))->find()) {
 			return 1;
 		} else {
 			return 0;

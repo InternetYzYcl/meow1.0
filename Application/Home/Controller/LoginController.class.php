@@ -18,7 +18,7 @@ class LoginController extends Controller
 	 */
 	public function index() {
 		//学号密码
-		$post_json = I('post.data');
+		$post_json = $_POST['data'];
 		$post = json_decode($post_json, true);
 		$stuId = $post['stuid'];
 		$password = $post['password'];
@@ -29,9 +29,9 @@ class LoginController extends Controller
 			$this->stuId = $stuId;
 			$this->password = $password;
 			//调整将要返回的数据
-			if($login_res = $this->LoginWay()) {
+			if($this->LoginWay()) {
 				$info = 'success';
-				$data = $login_res;
+				$data = $this->userDB->where(array('stuid' => $this->stuId))->find();
 			} else {
 				$info = 'login failed';
 				$data = '';
@@ -115,10 +115,10 @@ class LoginController extends Controller
 	protected function LoginWay() {
 		if($student = $this->userDB->where(array('stuid' => $this->stuId))->find()) {
 			//使用数据库登陆
-			if($student['idNum'] == $this->password)
+			if($student['idnum'] == $this->password)
 				return 1;
 			else
-				return $student;
+				return 0;
 		} else {
 			//使用接口登陆,接口的post数据
 			$post_data = array(
