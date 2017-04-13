@@ -18,10 +18,12 @@ class LoginController extends Controller
 	 */
 	public function index() {
 		//学号密码
-		// $stuId = I('post.stuId');
-		// $password = I('post.password');
-		$stuId = 2015210367;
-		$password = 247328;
+		$post_json = I('post.data');
+		$post = json_decode($post_json, true);
+		$stuId = $post['stuid'];
+		$password = $post['password'];
+		// $stuId = 2015210367;
+		// $password = 247328;
 		$flag = $this->inspect($stuId, $password);
 		if($flag) {
 			$this->stuId = $stuId;
@@ -77,7 +79,7 @@ class LoginController extends Controller
 	/**
 	 * curl链接学号接口 模拟登陆
 	 */
-	public function curlPost($url = '', $post_data = array()) {    
+	protected function curlPost($url = '', $post_data = array()) {    
         if (empty($url) || empty($post_data)) {
             return false;
         }  
