@@ -11,32 +11,12 @@ class HolidayController extends Controller {
     /**
      * @param $json 申请请假的详细信息 
      */
-    public function apply() {
-   //  	$json = array(
-   //  		'stuid' => '2015210342',
-   //  		'password' => '23155X',
-   //  		'title' => '我要请假',
-   //  		'aim' => '事假',
-   //  		'detail' => '周一上午5,6节课 我要睡觉！！！！！！',
-   //  		'course' => '信号与系统',
-   //  		'time' => 
-   //  			json_encode(array(
-			// 		'2017-04-10',
-			// 		'2017-04-10',
-			// 	)),
-   //  		'count' => '2',
-   //  		'certifier' => 
-	  //   		json_encode(array(
-			// 		'stuid' => '2015210355',
-			// 		'name' => '杨周',
-			// 		'phone' => '110',
-			// 	)),
-			// 'status' => '0',
-   //  	);
+    public function apply() {        
+        $data = json_decode($_POST['data'],true);
 
-    	$data = json_encode(I('post.data'),true);
 		$stuid = $data['stuid'];
     	$password = $data['password'];
+        
     	if($this->checkPassword($stuid,$password)) {
 			$data['status'] = 1;
     		$data['class'] = $this->getClassByStuid($data['stuid']);
@@ -55,20 +35,15 @@ class HolidayController extends Controller {
 	    	}
     	} else {
     		$this->ajaxReturn(array(
-    			'status' => 400,
+    			'status' => 403,
     			'info' => 'password wrong',
     			'version' => '1.0'
     		));
     	}
-
-    	
-    
-    	
-
     }
     //取消请假 
     public function cancleHoliday() {
-    	$data = json_decode(I('post.data'),true);
+    	$data = json_decode($_POST['data'],true);
     	$stuid = $data['stuid'];
     	$password = $data['password'];
     	if($this->checkPassword($stuid,$password)) {
@@ -88,7 +63,7 @@ class HolidayController extends Controller {
     		}
     	} else {
     		$this->ajaxReturn(array(
-    			'status' => 400,
+    			'status' => 403,
     			'info' => 'password wrong',
     			'version' => '1.0'
     		));
@@ -96,20 +71,35 @@ class HolidayController extends Controller {
 
     }
     //班委审核
+    /**
+     * @param $stuid $password 学号密码
+     *
+     * @param $agree 是否同意 同意为true 不同意为false
+     *
+     * @param $evaluate 评语
+     *
+     * @param $requestid 请假的id号
+     */
     public function verifyByMonitor() {
-    	$data = json_decode(I('post.data'),true);
+    	$data = json_decode($_POST['data'],true);
     	$stuid = $data['stuid'];
     	$password = $data['password'];
     	if($this->checkPassword($stuid,$password) || $this->checkIsMonitor($stuid)) {
-    		$status = $data['agree'] ? 3 : 2;    			//通过是3 不通过是2
-    		$evaluate = $data['evaluate'];
-    		if(!$this->holidayDB->save(array('status' => $status,'evaluate_monitor' => $evaluate))) {
+    		
+            $status = $this->getHolidayColumn($data['requestid'],'status');
+
+    		if($status['status'] != 1) {
     			$this->ajaxReturn(array(
 	    			'status' => 403,
-	    			'info' => 'requestid not found',
+	    			'info' => 'requestid not found or already verified',
 	    			'version' => '1.0'
 	    		));
     		} else {
+                $save = array(
+                    'status' => $data['agree'] ? 3 : 2,             //通过是3 不通过是2
+                    'evaluate_monitor' => $data['evaluate'],
+                );
+                $this->holidayDB->where(array('id' => $data['requestid']))->save($save);
     			$this->ajaxReturn(array(
 	    			'status' => 200,
 	    			'info' => 'success',
@@ -119,7 +109,7 @@ class HolidayController extends Controller {
 
     	} else {
     		$this->ajaxReturn(array(
-    			'status' => 400,
+    			'status' => 403,
     			'info' => 'password wrong or student not monitor',
     			'version' => '1.0'
     		));
@@ -128,28 +118,33 @@ class HolidayController extends Controller {
     }
     //辅导员审核
     public function verifyByTeacher() {
-    	$data = json_decode(I('post.data'),true);
+    	$data = json_decode($_POST['data'],true);
     	$stuid = $data['stuid'];
     	$password = $data['password'];
     	if($this->checkPassword($stuid,$password) || $this->checkIsTeacher($stuid)) {
-    		$status = $data['agree'] ? 4 : 5;    			//通过是5 不通过是4
-    		$evaluate = $data['evaluate'];
-    		if(!$this->holidayDB->save(array('status' => $status,'evaluate_teacher' => $evaluate))) {
-    			$this->ajaxReturn(array(
-	    			'status' => 403,
-	    			'info' => 'requestid not found',
-	    			'version' => '1.0'
-	    		));
-    		} else {
-    			$this->ajaxReturn(array(
-	    			'status' => 200,
-	    			'info' => 'success',
-	    			'version' => '1.0'
-	    		));
-    		}
+    		$status = $this->getHolidayColumn($data['requestid'],'status');
+
+            if($status['status'] != 3) {
+                $this->ajaxReturn(array(
+                    'status' => 403,
+                    'info' => 'requestid not found or already verified',
+                    'version' => '1.0'
+                ));
+            } else {
+                $save = array(
+                    'status' => $data['agree'] ? 5 : 4,             //通过是5 不通过是4
+                    'evaluate_monitor' => $data['evaluate'],
+                );
+                $this->holidayDB->where(array('id' => $data['requestid']))->save($save);
+                $this->ajaxReturn(array(
+                    'status' => 200,
+                    'info' => 'success',
+                    'version' => '1.0'
+                ));
+            }
     	} else {
     		$this->ajaxReturn(array(
-    			'status' => 400,
+    			'status' => 403,
     			'info' => 'password wrong or student not teacher',
     			'version' => '1.0'
     		));
@@ -157,16 +152,30 @@ class HolidayController extends Controller {
     }
     //获取单一学生所有请假信息
     /**
-     * @param $stuid 学生学号
+     * @param $stuid $password 学生学号 密码
      *
      * @return $data 学生所有请假的 简略信息
      */
     public function getMyHoliday() {
-    	$data = json_decode(I('post.data'),true);
-    	$stuid = $data['stuid'];
+    	$data = json_decode($_POST['data'],true);
+    	
+        $stuid = $data['stuid'];
     	$password = $data['password'];
+        $status = $data['status'] ? $data['status'] : null;
     	if($this->checkPassword($stuid,$password)) {
-    		$res = $this->holidayDB->where(array('stuid' => $stuid))->field('id, title, time, status')->select();
+
+            if($status == null) {
+                $where = array(
+                    'stuid' => $stuid,
+                );
+            } else {
+                $where = array(
+                    'stuid' => $stuid,
+                    'status' => $status,
+                );
+            }
+
+    		$res = $this->holidayDB->where($where)->field('id, title, time, status')->select();
 	    	$this->ajaxReturn(array(
     			'status' => 200,
     			'info' => 'success',
@@ -175,7 +184,7 @@ class HolidayController extends Controller {
     		));
     	} else {
     		$this->ajaxReturn(array(
-    			'status' => 400,
+    			'status' => 403,
     			'info' => 'password wrong',
     			'version' => '1.0'
     		));
@@ -189,11 +198,12 @@ class HolidayController extends Controller {
      * @return $data 某条假的详细信息
      */
     public function getHolidayById() {
-    	$data = json_decode(I('post.data'),true);
+    	$data = json_decode($_POST['data'],true);
     	$stuid = $data['stuid'];
     	$password = $data['password'];
+        $requestid = $data['requestid'];
     	if($this->checkPassword($stuid,$password)) {
-	    	$res = $this->holidayDB->where(array('requestid' => $requestid))->field('id',true)->select();
+	    	$res = $this->holidayDB->where(array('id' => $requestid))->field('id',true)->select();
 	    	$this->ajaxReturn(array(
     			'status' => 200,
     			'info' => 'success',
@@ -202,7 +212,7 @@ class HolidayController extends Controller {
     		));
     	} else {
     		$this->ajaxReturn(array(
-    			'status' => 400,
+    			'status' => 403,
     			'info' => 'password wrong',
     			'version' => '1.0'
     		));
@@ -218,13 +228,27 @@ class HolidayController extends Controller {
      * @return $data 该班级所有请假的简略信息
      */
     public function getClassHoliday() {
-    	$data = json_decode(I('post.data'),true);
+    	$data = json_decode($_POST['data'],true);
+
     	$stuid = $data['stuid'];
     	$password = $data['password'];
-    	if($this->checkPassword($stuid,$password) || $this->checkIsMonitor($stuid)) {
+        $status = $data['status'] ? $data['status'] : null;
+
+    	if($this->checkPassword($stuid,$password) && $this->checkIsMonitor($stuid)) {
     		
-			$class = getClassByStuid($stuid);
-			$res = $this->holidayDB->where(array('class' => $class))->field('id, title, time, status')->select();
+			$class = $this->getClassByStuid($stuid);
+           
+            if($status == null) {
+                $where = array(
+                    'class' => $class,
+                );
+            } else {
+                $where = array(
+                    'class' => $class,
+                    'status' => $status,
+                );
+            }
+			$res = $this->holidayDB->where($where)->field('id, title, time, status')->select();
 			$this->ajaxReturn(array(
 				'status' => 200,
 				'info' => 'success',
@@ -234,7 +258,7 @@ class HolidayController extends Controller {
 
     	} else {
     		$this->ajaxReturn(array(
-    			'status' => 400,
+    			'status' => 403,
     			'info' => 'password wrong or student not monitor',
     			'version' => '1.0'
     		));
@@ -244,20 +268,37 @@ class HolidayController extends Controller {
     }
     //辅导员获取所有班级请假情况
     public function getMajorHoliday() {
-    	$data = json_decode(I('post.data'),true);
+    	$data = json_decode($_POST['data'],true);
+
     	$stuid = $data['stuid'];
     	$password = $data['password'];
+        $status = $data['status'] ? $data['status'] : null;
+
     	if($this->checkPassword($stuid,$password)) {
     		
-    		$class = M('class')->where(array('t_id' => $stuid))->field('class')->select();
-			
-			$res = $this->holidayDB->where(array('class' => $class))->field('id, title, time, status')->select();
+    		$res = M('class')->where(array('t_id' => $stuid))->field('class')->select();
+            $class = array();
+            foreach ($res as $key => $value) {
+                $class[$key] = $value['class'];
+            } 
+			if($status == null) {
+                $where = array(
+                    'class' => array('in',$class),
+                );
+            } else {
+                $where = array(
+                    'class' => array('in',$class),
+                    'status' => $status,
+                );
+            }
+            var_dump($where);
+			$res = $this->holidayDB->where($where)->field('id, title, time, status')->select();
 			$this->ajaxReturn(array(
 				'status' => 200,
 				'data' => $res,
 				'info' => 'success',
 				'version' => '1.0',
-			));,
+			));
     	} else {
     		$this->ajaxReturn(array(
     			'status' => 400,
@@ -275,7 +316,8 @@ class HolidayController extends Controller {
      * @return $class 学生班级号
      */
     private function getClassByStuid($stuid) {
-    	return $class = M('user')->where(array('stuid' => $stuid))->field('class')->find();
+    	$class = M('user')->where(array('stuid' => $stuid))->field('class')->find();
+        return $class['class'];
     }
     //判断一个学生是不是班委
     /**
@@ -283,7 +325,7 @@ class HolidayController extends Controller {
      */
     private function checkIsMonitor($stuid) {
     	$character = M('user')->where(array('stuid' => $stuid))->field('character')->find();
-    	return $character == 'monitor' ? true : false; 
+    	return $character['character'] == 'monitor' ? true : false; 
     }
      //判断一个user是不是辅导员
     /**
@@ -291,7 +333,7 @@ class HolidayController extends Controller {
      */
     private function checkIsTeacher($stuid) {
     	$character = M('user')->where(array('stuid' => $stuid))->field('character')->find();
-    	return $character == 'teacher' ? true : false; 
+    	return $character['character'] == 'teacher' ? true : false; 
     }
     /**
      * @param $stuid 要检验的学号
@@ -299,8 +341,21 @@ class HolidayController extends Controller {
      * @param $password 传过来的密码
      */
     private function checkPassword($stuid, $password) {
-    	$user = M('user')->where('stuid' => $stuid, 'password' => $password)->find();
-    	return $user ? true : false;
+    	$user = M('user')->where(array('stuid' => $stuid, 'idnum' => $password))->find();
+        if($user != null) {
+            return true;
+        } else {
+            return false;
+        }
 
+    }
+    /**
+     * @param $id 请假的id号
+     *
+     * @param $column 需要查找的字段值
+     */
+    private function getHolidayColumn($id,$column) {
+        $res = $this->holidayDB->where(array('id' => $id))->field($column)->find();
+        return $res;
     }
 }
