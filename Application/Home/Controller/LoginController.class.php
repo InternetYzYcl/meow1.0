@@ -13,6 +13,9 @@ class LoginController extends Controller
 		$this->userDB = M('user');
 	}
 
+	/**
+	 * 获得学生学号和密码，并进行处理
+	 */
 	public function index() {
 		//学号密码
 		// $stuId = I('post.stuId');
@@ -23,6 +26,7 @@ class LoginController extends Controller
 		if($flag) {
 			$this->stuId = $stuId;
 			$this->password = $password;
+			//调整将要返回的数据
 			if($login_res = $this->LoginWay()) {
 				$info = 'success';
 				$data = $login_res;
@@ -41,47 +45,6 @@ class LoginController extends Controller
 			'version' => '1.0',
 		);
 		$this->ajaxReturn($return);
-	}
-	/**
-	 * 使用两种不同的登陆方式
-	 *
-	 */
-	protected function LoginWay() {
-		if($student = $this->userDB->where(array('stuid' => $this->stuId))->find()) {
-			//使用数据库登陆
-			if($student['idNum'] == $this->password)
-				return 1;
-			else
-				return $student;
-		} else {
-			//使用接口登陆
-			$post_data = array(
-				'stuNum' => $this->stuId,
-				'idNum' => $this->password,
-			);
-			$json_data = $this->curlpost($this->url, $post_data);
-			$data = json_decode($json_data, true);
-			if($data['status'] == 200) {
-				$array = array(
-					'stuid' => $this->stuId,
-					//可能要加密
-					'idNum' => $this->password,
-					'name' => $data['data']['name'],
-					'gender' => $data['data']['gender'],
-					'class' => $data['data']['classNum'],
-					'major' => $data['data']['major'],
-					'college' => $data['data']['college'],
-					'grade' => $data['data']['grade'],
-					//可能需要修改
-					'character' => 'student'
-				);
-				$insert_res = $this->userDB->data($array)->add();
-				if($insert_res)return $array;else return 0;
-			} else {
-				return 0;
-			}
-			
-		}
 	}
 	/**
 	 * 加密方法
@@ -111,7 +74,6 @@ class LoginController extends Controller
 		else
 			return 0;
 	}
-
 	/**
 	 * curl链接学号接口 模拟登陆
 	 */
@@ -144,4 +106,44 @@ class LoginController extends Controller
         curl_close($ch); 
         return $data;
     }
+    /**
+	 * 使用两种不同的登陆方式
+	 * @param $json_data 使用接口返回的json格式的学生数据
+	 */
+	protected function LoginWay() {
+		if($student = $this->userDB->where(array('stuid' => $this->stuId))->find()) {
+			//使用数据库登陆
+			if($student['idNum'] == $this->password)
+				return 1;
+			else
+				return $student;
+		} else {
+			//使用接口登陆,接口的post数据
+			$post_data = array(
+				'stuNum' => $this->stuId,
+				'idNum' => $this->password,
+			);
+			$json_data = $this->curlpost($this->url, $post_data);
+			$data = json_decode($json_data, true);
+			if($data['status'] == 200) {
+				$array = array(
+					'stuid' => $this->stuId,
+					//可能要加密
+					'idNum' => $this->password,
+					'name' => $data['data']['name'],
+					'gender' => $data['data']['gender'],
+					'class' => $data['data']['classNum'],
+					'major' => $data['data']['major'],
+					'college' => $data['data']['college'],
+					'grade' => $data['data']['grade'],
+					//可能需要修改
+					'character' => 'student'
+				);
+				$insert_res = $this->userDB->data($array)->add();
+				if($insert_res)return $array;else return 0;
+			} else {
+				return 0;
+			}
+		}
+	}
 }
