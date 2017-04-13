@@ -1,0 +1,601 @@
+[ 2017-04-13T14:22:49+08:00 ] ::1 /Internet/meow1.0/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.028640s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.016902s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016947s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027302s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027350s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.012277s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012326s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008368s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008406s ]
+
+[ 2017-04-13T14:23:10+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000479s ]
+ERR: syntax error, unexpected '$flag' (T_VARIABLE)
+
+[ 2017-04-13T14:23:40+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+ERR: syntax error, unexpected '$flag1' (T_VARIABLE)
+
+[ 2017-04-13T14:24:03+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000386s ]
+ERR: syntax error, unexpected '$flag' (T_VARIABLE)
+
+[ 2017-04-13T14:24:08+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000374s ]
+ERR: syntax error, unexpected '$flag' (T_VARIABLE)
+
+[ 2017-04-13T14:24:16+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000294s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0314s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210355 LIMIT 1   [ RunTime:0.0295s ]
+NOTIC: [8] Undefined variable: data E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 27 行.
+
+[ 2017-04-13T14:24:41+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000499s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0326s ]
+NOTIC: [8] Undefined variable: flag_2 E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 71 行.
+
+[ 2017-04-13T14:24:57+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000324s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000587s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0328s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210355 LIMIT 1   [ RunTime:0.0333s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000853s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000900s ]
+
+[ 2017-04-13T14:25:09+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000422s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000544s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0324s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210355 LIMIT 1   [ RunTime:0.0317s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000515s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000548s ]
+
+[ 2017-04-13T14:25:55+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0295s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0290s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000506s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000563s ]
+
+[ 2017-04-13T14:26:11+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0325s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0363s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000565s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000634s ]
+
+[ 2017-04-13T14:27:24+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000647s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000756s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0339s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0329s ]
+NOTIC: [2] json_decode() expects parameter 1 to be string, array given E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 53 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001053s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001131s ]
+
+[ 2017-04-13T14:27:46+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0296s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0290s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000823s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000913s ]
+
+[ 2017-04-13T14:27:55+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000334s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000362s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0318s ]
+NOTIC: [2] Illegal string offset 'status' E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 53 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000693s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000752s ]
+
+[ 2017-04-13T14:28:05+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0324s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0318s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000484s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000538s ]
+
+[ 2017-04-13T14:28:15+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000535s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000578s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0298s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0290s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000714s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000790s ]
+
+[ 2017-04-13T14:28:21+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000369s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0334s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0334s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000505s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000566s ]
+
+[ 2017-04-13T14:42:21+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000433s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000462s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0296s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0291s ]
+SQL: INSERT INTO `user` (`stuid`,`idNum`,`name`,`gender`,`class`,`major`,`college`,`grade`,`character`) VALUES ('','247328','高萌','女','01021505','0102','通信与信息工程学院','2015','student') [ RunTime:0.0969s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000569s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000603s ]
+
+[ 2017-04-13T14:42:48+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000360s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000499s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0300s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0294s ]
+SQL: INSERT INTO `user` (`stuid`,`idNum`,`name`,`gender`,`class`,`major`,`college`,`grade`,`character`) VALUES ('2015210367','247328','高萌','女','01021505','0102','通信与信息工程学院','2015','student') [ RunTime:0.0305s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000805s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000922s ]
+
+[ 2017-04-13T14:43:25+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000493s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0298s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0294s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000467s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000495s ]
+
+[ 2017-04-13T14:44:19+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000483s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000377s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0322s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0319s ]
+SQL: INSERT INTO `user` (`stuid`,`idNum`,`name`,`gender`,`class`,`major`,`college`,`grade`,`character`) VALUES ('2015210367','247328','高萌','女','01021505','0102','通信与信息工程学院','2015','student') [ RunTime:0.0366s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000506s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000538s ]
+
+[ 2017-04-13T14:45:44+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000494s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000533s ]
+ERR: syntax error, unexpected 'return' (T_RETURN)
+
+[ 2017-04-13T14:45:45+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000397s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+ERR: syntax error, unexpected 'return' (T_RETURN)
+
+[ 2017-04-13T14:45:46+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+ERR: syntax error, unexpected 'return' (T_RETURN)
+
+[ 2017-04-13T14:45:46+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+ERR: syntax error, unexpected 'return' (T_RETURN)
+
+[ 2017-04-13T14:45:50+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000571s ]
+ERR: syntax error, unexpected 'return' (T_RETURN)
+
+[ 2017-04-13T14:46:08+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+ERR: syntax error, unexpected 'return' (T_RETURN)
+
+[ 2017-04-13T14:46:11+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000768s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000435s ]
+ERR: syntax error, unexpected 'return' (T_RETURN)
+
+[ 2017-04-13T14:47:25+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000350s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000379s ]
+ERR: syntax error, unexpected 'echo' (T_ECHO)
+
+[ 2017-04-13T14:47:25+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000345s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+ERR: syntax error, unexpected 'echo' (T_ECHO)
+
+[ 2017-04-13T14:47:34+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+ERR: syntax error, unexpected 'echo' (T_ECHO)
+
+[ 2017-04-13T14:47:35+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000360s ]
+ERR: syntax error, unexpected 'echo' (T_ECHO)
+
+[ 2017-04-13T14:47:35+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000762s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000842s ]
+ERR: syntax error, unexpected 'echo' (T_ECHO)
+
+[ 2017-04-13T14:47:42+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000395s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0326s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0322s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000560s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000589s ]
+
+[ 2017-04-13T14:48:15+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000434s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000490s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000531s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0295s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0294s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000601s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000635s ]
+
+[ 2017-04-13T14:48:45+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0358s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0318s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000529s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000577s ]
+
+[ 2017-04-13T14:57:44+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000636s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000547s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000595s ]
+ERR: syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+
+[ 2017-04-13T14:57:54+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000449s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000487s ]
+ERR: syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+
+[ 2017-04-13T14:58:02+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000478s ]
+ERR: syntax error, unexpected '=', expecting ')'
+
+[ 2017-04-13T14:58:09+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000383s ]
+ERR: syntax error, unexpected '=', expecting ')'
+
+[ 2017-04-13T14:58:16+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0327s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0323s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:22+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000348s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0302s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0291s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:22+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000517s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000567s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0323s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:23+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000516s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000545s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000606s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0339s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0344s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:23+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000698s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0318s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0293s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:23+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000386s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0326s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0323s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:28+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000403s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0320s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0318s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:28+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000416s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0293s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0290s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:28+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000400s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000472s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000521s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0294s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0291s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+
+[ 2017-04-13T14:58:34+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000256s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000355s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0302s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 201521036 LIMIT 1   [ RunTime:0.0289s ]
+NOTIC: [8] Undefined index: data E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 68 行.
+NOTIC: [8] Undefined index: data E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 69 行.
+NOTIC: [8] Undefined index: data E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 70 行.
+NOTIC: [8] Undefined index: data E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 71 行.
+NOTIC: [8] Undefined index: data E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 72 行.
+NOTIC: [8] Undefined index: data E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 73 行.
+SQL: INSERT INTO `user` (`stuid`,`idNum`,`name`,`gender`,`class`,`major`,`college`,`grade`,`character`) VALUES ('201521036','247328',NULL,NULL,NULL,NULL,NULL,NULL,'student') [ RunTime:0.0308s ]
+
+[ 2017-04-13T15:00:16+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000418s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000449s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0295s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 201521036 LIMIT 1   [ RunTime:0.0289s ]
+
+[ 2017-04-13T15:00:23+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000477s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0298s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 201521036 LIMIT 1   [ RunTime:0.0294s ]
+
+[ 2017-04-13T15:00:26+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000442s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0297s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 201521036 LIMIT 1   [ RunTime:0.0289s ]
+
+[ 2017-04-13T15:00:33+08:00 ] ::1 /Internet/meow1.0/index.php/?s=/Home/Login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000381s ]
+SQL: SHOW COLUMNS FROM `user` [ RunTime:0.0295s ]
+SQL: SELECT * FROM `user` WHERE `stuid` = 2015210367 LIMIT 1   [ RunTime:0.0288s ]
+NOTIC: [8] Undefined index: idNum E:\wamp\www\Internet\meow1.0\Application\Home\Controller\LoginController.class.php 第 52 行.
+

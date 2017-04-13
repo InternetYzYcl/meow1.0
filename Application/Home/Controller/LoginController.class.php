@@ -6,36 +6,95 @@ class LoginController extends Controller
 {
 	protected $stuId;
 	protected $password;
+	protected $userDB;
 	protected $url = 'http://hongyan.cqupt.edu.cn/api/verify';
 
+	public function _initialize() {
+		$this->userDB = M('user');
+	}
+
 	public function index() {
-		$stuId = I('post.stuId');
-		$password = I('post.password');
+		//学号密码
+		// $stuId = I('post.stuId');
+		// $password = I('post.password');
+		$stuId = 2015210367;
+		$password = 247328;
 		$flag = $this->inspect($stuId, $password);
 		if($flag) {
 			$this->stuId = $stuId;
 			$this->password = $password;
-			$post_data = array(
-				'stuNum' => $stuId,
-				'idNum' => $password,
-			);
-			$data = $this->curlpost($this->url, $post_data);
-			$data = json_decode($data, true);
-			if
-			//待完成..............
-			$this->ajaxReturn($data);
+			if($login_res = $this->LoginWay()) {
+				$info = 'success';
+				$data = $login_res;
+			} else {
+				$info = 'login failed';
+				$data = '';
+			}
 		} else {
-			$return = array(
-				'status' => 403,
-				'info' => 'param invalid',  //输入非法
-				'data' => '',
-				'version' => '1.0',
+			$info = 'param invalid';  //输入非法
+			$data = '';
+		}
+		$return = array(
+			'info' => $info,
+			'data' => $data,
+			'status' => 801,
+			'version' => '1.0',
+		);
+		$this->ajaxReturn($return);
+	}
+	/**
+	 * 使用两种不同的登陆方式
+	 *
+	 */
+	protected function LoginWay() {
+		if($student = $this->userDB->where(array('stuid' => $this->stuId))->find()) {
+			//使用数据库登陆
+			if($student['idNum'] == $this->password)
+				return 1;
+			else
+				return $student;
+		} else {
+			//使用接口登陆
+			$post_data = array(
+				'stuNum' => $this->stuId,
+				'idNum' => $this->password,
 			);
-			$this->ajaxReturn($return);
+			$json_data = $this->curlpost($this->url, $post_data);
+			$data = json_decode($json_data, true);
+			if($data['status'] == 200) {
+				$array = array(
+					'stuid' => $this->stuId,
+					//可能要加密
+					'idNum' => $this->password,
+					'name' => $data['data']['name'],
+					'gender' => $data['data']['gender'],
+					'class' => $data['data']['classNum'],
+					'major' => $data['data']['major'],
+					'college' => $data['data']['college'],
+					'grade' => $data['data']['grade'],
+					//可能需要修改
+					'character' => 'student'
+				);
+				$insert_res = $this->userDB->data($array)->add();
+				if($insert_res)return $array;else return 0;
+			} else {
+				return 0;
+			}
+			
 		}
 	}
+	/**
+	 * 加密方法
+	 * @param $password 需要加密的密码
+	 * @return $password_encrypt 加密后的密码
+	 */
+	protected function encrypt() {
 
-	//验证
+	}
+	/**
+	 * 验证输入是否正确
+	 * @param $flag_1 $flag_2 得到判断后的正误 int类型
+	 */
 	protected function inspect($stuId, $password) {
 		$flag_1 = is_numeric($stuId);
 		//拆分password
@@ -53,8 +112,10 @@ class LoginController extends Controller
 			return 0;
 	}
 
-	//curl链接学号接口
-	public function curlPost($url = '', $post_data = array()) {    //模拟登陆
+	/**
+	 * curl链接学号接口 模拟登陆
+	 */
+	public function curlPost($url = '', $post_data = array()) {    
         if (empty($url) || empty($post_data)) {
             return false;
         }  
@@ -67,13 +128,19 @@ class LoginController extends Controller
 
         $postUrl = $url;
         $curlPost = $post_data;
-        $ch = curl_init();//初始化curl
-        curl_setopt($ch, CURLOPT_URL,$postUrl);//抓取指定网页
-        curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
-        curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+        //初始化curl
+        $ch = curl_init();
+        //抓取指定网页
+        curl_setopt($ch, CURLOPT_URL,$postUrl);
+        //设置header
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        //要求结果为字符串且输出到屏幕上
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        //post提交方式
+        curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
-        $data = curl_exec($ch);//运行curl
+        //运行curl
+        $data = curl_exec($ch);
         curl_close($ch); 
         return $data;
     }
