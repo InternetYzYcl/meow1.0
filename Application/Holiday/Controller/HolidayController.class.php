@@ -291,7 +291,7 @@ class HolidayController extends Controller {
                     'status' => $status,
                 );
             }
-            var_dump($where);
+
 			$res = $this->holidayDB->where($where)->field('id, title, time, status')->select();
 			$this->ajaxReturn(array(
 				'status' => 200,
