@@ -46,7 +46,10 @@ class LoginController extends Controller
 		}
 		$return = array(
 			'info' => $info,
-			'data' => $data,
+			'data' => array(
+					'stuid' => $this->stuId,
+					'password' => $this->password,
+				),
 			'status' => $status,
 			'version' => '1.0',
 		);
