@@ -24,7 +24,8 @@ class LoginController extends Controller
 		$password = $post['password'];
 		// $stuId = 2015210367;
 		// $password = 247328;
-		$flag = $this->inspect($stuId, $password);
+		// $flag = $this->inspect($stuId, $password);
+		$flag = 1;
 		if($flag) {
 			$this->stuId = $stuId;
 			$this->password = $password;
@@ -65,6 +66,7 @@ class LoginController extends Controller
 		//拆分password
 		$pass_1 = substr($password, -1);
 		$pass_2 = substr($password, 0, strlen($password) - 1);
+		echo $pass_2;
 		if(is_numeric($password)) {
 			$flag_2 = 1;
 		} elseif (is_numeric($password) || $pass_2 == 'x' || $pass_2 == 'X') {
