@@ -36,7 +36,7 @@ class LoginController extends Controller
 				$status = "200";
 			} else {
 				$info = 'login failed';
-				$data = '';
+				$data = $post_json;
 				$status = "801";
 			}
 		} else {
@@ -46,10 +46,7 @@ class LoginController extends Controller
 		}
 		$return = array(
 			'info' => $info,
-			'data' => array(
-					'stuid' => $this->stuId,
-					'password' => $this->password,
-				),
+			'data' => $data,
 			'status' => $status,
 			'version' => '1.0',
 		);
