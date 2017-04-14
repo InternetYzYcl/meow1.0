@@ -36,7 +36,7 @@ class LoginController extends Controller
 				$status = "200";
 			} else {
 				$info = 'login failed';
-				$data = $post_json;
+				$data = $_POST;
 				$status = "801";
 			}
 		} else {
