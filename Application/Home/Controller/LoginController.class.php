@@ -33,18 +33,21 @@ class LoginController extends Controller
 			if($this->LoginWay()) {
 				$info = 'success';
 				$data = $this->userDB->where(array('stuid' => $this->stuId))->find();
+				$status = "200";
 			} else {
 				$info = 'login failed';
 				$data = '';
+				$status = "801";
 			}
 		} else {
 			$info = 'param invalid';  //输入非法
 			$data = '';
+			$status = "801";
 		}
 		$return = array(
 			'info' => $info,
 			'data' => $data,
-			'status' => 801,
+			'status' => $status,
 			'version' => '1.0',
 		);
 		$this->ajaxReturn($return);
